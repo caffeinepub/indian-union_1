@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        
+        /* Carbon Blue Background System */
+        --background: 0.18 0.04 240;
+        --foreground: 0.95 0.01 240;
+        
+        /* Card surfaces with subtle blue tint */
+        --card: 0.22 0.03 240;
+        --card-foreground: 0.95 0.01 240;
+        
+        --popover: 0.22 0.03 240;
+        --popover-foreground: 0.95 0.01 240;
+        
+        /* Gold accent system */
+        --primary: 0.70 0.15 65;
+        --primary-foreground: 0.18 0.04 240;
+        
+        --secondary: 0.25 0.03 240;
+        --secondary-foreground: 0.95 0.01 240;
+        
+        --muted: 0.25 0.03 240;
+        --muted-foreground: 0.65 0.02 240;
+        
+        --accent: 0.30 0.04 240;
+        --accent-foreground: 0.95 0.01 240;
+        
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0.01 240;
+        
+        --border: 0.30 0.04 240;
+        --input: 0.30 0.04 240;
+        --ring: 0.70 0.15 65;
+        
+        /* Custom carbon-blue shades */
+        --carbon: 0.18 0.04 240;
+        --carbon-dark: 0.15 0.04 240;
+        --carbon-darker: 0.12 0.04 240;
+        
+        /* Gold variations */
+        --gold: 0.70 0.15 65;
+        --gold-light: 0.78 0.15 65;
+        --gold-dark: 0.62 0.15 65;
+    }
+
+    .dark {
+        --background: 0.12 0.04 240;
+        --foreground: 0.95 0.01 240;
+        
+        --card: 0.16 0.04 240;
+        --card-foreground: 0.95 0.01 240;
+        
+        --popover: 0.16 0.04 240;
+        --popover-foreground: 0.95 0.01 240;
+        
+        --primary: 0.75 0.16 65;
+        --primary-foreground: 0.12 0.04 240;
+        
+        --secondary: 0.20 0.04 240;
+        --secondary-foreground: 0.95 0.01 240;
+        
+        --muted: 0.20 0.04 240;
+        --muted-foreground: 0.60 0.02 240;
+        
+        --accent: 0.25 0.04 240;
+        --accent-foreground: 0.95 0.01 240;
+        
+        --destructive: 0.60 0.24 25;
+        --destructive-foreground: 0.12 0.04 240;
+        
+        --border: 0.25 0.04 240;
+        --input: 0.25 0.04 240;
+        --ring: 0.75 0.16 65;
+        
+        --carbon: 0.12 0.04 240;
+        --carbon-dark: 0.10 0.04 240;
+        --carbon-darker: 0.08 0.04 240;
+        
+        --gold: 0.75 0.16 65;
+        --gold-light: 0.82 0.16 65;
+        --gold-dark: 0.68 0.16 65;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    .bg-carbon {
+        background-color: oklch(var(--carbon));
+    }
+    .bg-carbon-dark {
+        background-color: oklch(var(--carbon-dark));
+    }
+    .bg-carbon-darker {
+        background-color: oklch(var(--carbon-darker));
+    }
+    .bg-gold {
+        background-color: oklch(var(--gold));
+    }
+    .bg-gold-light {
+        background-color: oklch(var(--gold-light));
+    }
+    .bg-gold-dark {
+        background-color: oklch(var(--gold-dark));
+    }
+    .text-carbon {
+        color: oklch(var(--carbon));
+    }
+    .text-gold {
+        color: oklch(var(--gold));
+    }
+    .text-gold-light {
+        color: oklch(var(--gold-light));
+    }
+    .border-gold {
+        border-color: oklch(var(--gold));
+    }
+}

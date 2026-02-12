@@ -1,0 +1,29 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T11:44:25.879Z",
+  "summary": "REQ-1/REQ-2/REQ-3 appear implemented via new/updated pages with English search placeholders, case-insensitive filtering (shared utility), and explicit loading/error/empty/no-results UI states. Navigation entry points for these pages appear added in the header and routing summary, but unauthenticated access blocking/prompting cannot be confirmed from the provided diff excerpts.",
+  "missing_requirements": [
+    {
+      "id": "REQ-4",
+      "requirement": "Unauthenticated users cannot access Meeting History, Recent Meetings, and Member Search pages and are prompted to sign in instead.",
+      "reason": "The diff summary indicates new navigation/routing for these pages, but does not include concrete evidence of route-guarding or a sign-in prompt shown when unauthenticated.",
+      "evidence": [
+        "frontend-file-summaries.txt (mentions App.tsx routing/auth handling and SiteHeader nav, but no concrete unauthenticated-guard implementation shown)",
+        "frontend/src/pages/MeetingHistoryPage.tsx (no auth gating shown in excerpt)",
+        "frontend/src/pages/RecentMeetingsPage.tsx (no auth gating shown in excerpt)",
+        "frontend/src/pages/MemberSearchPage.tsx (no auth gating shown in excerpt)"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/pages/MeetingHistoryPage.tsx",
+    "frontend/src/pages/MemberSearchPage.tsx",
+    "frontend/src/pages/RecentMeetingsPage.tsx",
+    "frontend/src/utils/textSearch.ts",
+    "project_state.json"
+  ]
+}

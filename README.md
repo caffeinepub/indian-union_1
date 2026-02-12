@@ -1,2 +1,3 @@
-# indian-union_1
-Exported from Caffeine project: Add Meeting History, Recent Meetings, and Member Search sections with search
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

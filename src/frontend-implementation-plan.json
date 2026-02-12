@@ -1,0 +1,94 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add authenticated Meeting History, Recent Meetings, and Member Search pages with search and navigation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add/validate an authenticated “Meeting History” page that lists all meetings with case-insensitive title/description search and clear UI states.",
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Meeting History”.",
+        "The page renders a search input with placeholder text in English.",
+        "Typing in the search input filters the rendered meeting list by meeting.title OR meeting.description (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no meetings at all, and no results for the current search query."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MeetingHistoryPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the Meeting History page meets the required UI states and implements case-insensitive filtering by meeting title/description; continue composing existing shadcn-ui primitives (e.g., Input/Card/Alert) without modifying frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/textSearch.ts",
+          "operation": "create",
+          "description": "Add a small shared helper for consistent case-insensitive matching (e.g., normalize strings and guard against empty queries) to reuse across meeting/member search pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add/validate an authenticated “Recent Meetings” page showing a deterministic bounded subset (latest 10) with case-insensitive search within that subset and clear UI states.",
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Recent Meetings”.",
+        "The page displays a bounded recent subset (e.g., latest 10) derived deterministically from the meetings dataset.",
+        "Typing in the search input filters only the recent subset by meeting.title OR meeting.description (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no meetings at all, and no results for the current search query within the recent subset."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/RecentMeetingsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Recent Meetings deterministically derives a bounded subset (e.g., sort by id desc then slice 10) and filters only within that subset case-insensitively by title/description, with loading/error/empty/no-results states; keep using composed shadcn-ui components. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/textSearch.ts",
+          "operation": "modify",
+          "description": "Reuse/extend the shared text search helper as needed for meeting title/description matching consistency across History and Recent pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add/validate an authenticated “Member Search” page that lists members and supports case-insensitive search by username with clear UI states.",
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Member Search” (or “Search Members”).",
+        "The page renders a search input with placeholder text in English.",
+        "Typing in the search input filters the rendered member list by username (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no members at all, and no results for the current search query."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MemberSearchPage.tsx",
+          "operation": "modify",
+          "description": "Ensure Member Search filters usernames case-insensitively and clearly renders loading/error/empty/no-results states; continue composing existing shadcn-ui primitives (Input/Card/Alert/Badge) without modifying frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/utils/textSearch.ts",
+          "operation": "modify",
+          "description": "Apply the shared case-insensitive match helper for username filtering to keep search behavior consistent."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Expose signed-in navigation entry points to Meeting History, Recent Meetings, and Member Search, and prevent unauthenticated access with a sign-in prompt.",
+      "acceptanceCriteria": [
+        "When signed in, the header navigation includes access to Meeting History and Recent Meetings under a Meetings navigation area.",
+        "When signed in, the header navigation includes access to Member Search under a Members navigation area.",
+        "Unauthenticated users cannot access these pages and are prompted to sign in instead."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Update/confirm signed-in header navigation includes Meetings area links to Recent Meetings + Meeting History and Members area link to Member Search; keep composing existing shadcn-ui dropdown primitives; do not edit frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire/confirm view registrations for Meeting History, Recent Meetings, and Member Search and ensure they are protected behind the existing signed-in gating; unauthenticated access must show a sign-in prompt consistent with the authorization/authentication flow (useInternetIdentity + cached query clearing on logout). Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

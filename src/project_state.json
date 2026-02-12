@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Project to build meeting management UI sections: meeting history with search, recent meetings with search, and member search.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-provide-a-meeting-history-section-page-for-authenticated-users-that-lists-all-meetings-and-includes-a-search-input-to-filter-meetings-case-insensitively-by-title-and-description-with-clear-loading-error-empty-and-no-results-states",
+      "title": "Provide a “Meeting History” section/page for authenticated users that lists all meetings and includes a search input to filter meetings case-insensitively by title and description, with clear loading, error, empty, and no-results states.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-recent-meetings-section-page-for-authenticated-users-that-shows-the-most-recent-meetings-and-includes-a-search-input-that-filters-within-the-recent-subset-by-title-and-description-case-insensitively-with-clear-loading-error-empty-and-no-results-states",
+      "title": "Provide a “Recent Meetings” section/page for authenticated users that shows the most recent meetings and includes a search input that filters within the recent subset by title and description case-insensitively, with clear loading, error, empty, and no-results states.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-member-search-section-page-for-authenticated-users-that-lists-members-and-includes-a-search-input-to-filter-members-case-insensitively-by-username-with-clear-loading-error-empty-and-no-results-states",
+      "title": "Provide a “Member Search” section/page for authenticated users that lists members and includes a search input to filter members case-insensitively by username, with clear loading, error, empty, and no-results states.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a meeting history section showing all meetings with a search option",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create a recent meetings section for recently held meetings (with search)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create a member search section/page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Ensure the signed-in navigation exposes entry points to Meeting History, Recent Meetings, and Member Search so users can reliably reach these sections.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Add Meeting History, Recent Meetings, and Member Search sections with search",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

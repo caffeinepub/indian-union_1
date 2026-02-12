@@ -1,0 +1,68 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-provide-a-meeting-history-section-page-for-authenticated-users-that-lists-all-meetings-and-includes-a-search-input-to-filter-meetings-case-insensitively-by-title-and-description-with-clear-loading-error-empty-and-no-results-states",
+      "featureTitle": "Provide a “Meeting History” section/page for authenticated users that lists all meetings and includes a search input to filter meetings case-insensitively by title and description, with clear loading, error, empty, and no-results states.",
+      "files": [
+        "frontend/src/pages/MeetingHistoryPage.tsx",
+        "frontend/src/utils/textSearch.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-a-recent-meetings-section-page-for-authenticated-users-that-shows-the-most-recent-meetings-and-includes-a-search-input-that-filters-within-the-recent-subset-by-title-and-description-case-insensitively-with-clear-loading-error-empty-and-no-results-states",
+      "featureTitle": "Provide a “Recent Meetings” section/page for authenticated users that shows the most recent meetings and includes a search input that filters within the recent subset by title and description case-insensitively, with clear loading, error, empty, and no-results states.",
+      "files": [
+        "frontend/src/pages/RecentMeetingsPage.tsx",
+        "frontend/src/utils/textSearch.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-a-member-search-section-page-for-authenticated-users-that-lists-members-and-includes-a-search-input-to-filter-members-case-insensitively-by-username-with-clear-loading-error-empty-and-no-results-states",
+      "featureTitle": "Provide a “Member Search” section/page for authenticated users that lists members and includes a search input to filter members case-insensitively by username, with clear loading, error, empty, and no-results states.",
+      "files": [
+        "frontend/src/pages/MemberSearchPage.tsx",
+        "frontend/src/utils/textSearch.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "blob-storage@4.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

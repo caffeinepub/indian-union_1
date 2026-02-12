@@ -1,0 +1,96 @@
+{
+  "kind": "build_request",
+  "title": "Add Meeting History, Recent Meetings, and Member Search sections with search",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Provide a “Meeting History” section/page for authenticated users that lists all meetings and includes a search input to filter meetings case-insensitively by title and description, with clear loading, error, empty, and no-results states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a history section for all meetings with search option"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Meeting History”.",
+        "The page renders a search input with placeholder text in English.",
+        "Typing in the search input filters the rendered meeting list by meeting.title OR meeting.description (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no meetings at all, and no results for the current search query."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Provide a “Recent Meetings” section/page for authenticated users that shows the most recent meetings and includes a search input that filters within the recent subset by title and description case-insensitively, with clear loading, error, empty, and no-results states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "and a recent section for recent meetings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Recent Meetings”.",
+        "The page displays a bounded recent subset (e.g., latest 10) derived deterministically from the meetings dataset.",
+        "Typing in the search input filters only the recent subset by meeting.title OR meeting.description (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no meetings at all, and no results for the current search query within the recent subset."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Provide a “Member Search” section/page for authenticated users that lists members and includes a search input to filter members case-insensitively by username, with clear loading, error, empty, and no-results states.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "and search section for members."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When signed in, users can navigate to a page titled “Member Search” (or “Search Members”).",
+        "The page renders a search input with placeholder text in English.",
+        "Typing in the search input filters the rendered member list by username (case-insensitive).",
+        "The page shows appropriate UI states for: loading, backend error, no members at all, and no results for the current search query."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Ensure the signed-in navigation exposes entry points to Meeting History, Recent Meetings, and Member Search so users can reliably reach these sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a history section... a recent section... and search section for members."
+        ]
+      },
+      "acceptanceCriteria": [
+        "When signed in, the header navigation includes access to Meeting History and Recent Meetings under a Meetings navigation area.",
+        "When signed in, the header navigation includes access to Member Search under a Members navigation area.",
+        "Unauthenticated users cannot access these pages and are prompted to sign in instead."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend code must not modify files under frontend/src/components/ui (compose existing shadcn components instead).",
+    "Frontend code must not modify immutable paths listed in SYSTEM_CONTEXT (e.g., frontend/src/hooks/useInternetIdentity.ts and frontend/src/hooks/useActor.ts).",
+    "Backend must remain a single Motoko actor (all logic in backend/main.mo); only add migration.mo if state schema changes are required."
+  ],
+  "nonGoals": [
+    "Fixing the Internet Identity sign-in error shown in the screenshot (\"Authentication Failed — User is already authenticated\").",
+    "Adding real-time updates (WebSockets) or push notifications.",
+    "Adding external databases or third-party authentication providers."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
